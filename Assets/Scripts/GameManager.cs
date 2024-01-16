@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
                 brick.onDestroyed.AddListener(AddPoint);
             }
         }
+
+        PlayerNameText.text = $"Player: {MainManager.Instance.PlayerName}";
     }
 
     private void Update()
@@ -57,6 +59,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        MainManager.Instance.AddScore(m_Points);
         GameOverArea.SetActive(true);
     }
 }
